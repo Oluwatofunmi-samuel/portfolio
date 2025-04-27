@@ -1,0 +1,512 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+  <meta name="description" content="Portfolio of Onanuga Samuel, Front-End Developer skilled in React, HTML, CSS, and JavaScript. See projects and resume.">  
+  <meta property="og:image" content="your-thumbnail.jpg">    
+  <title>Oluwatofunmi Samuel - Portfolio</title>  
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>  
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>  
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>    
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-xxx" crossorigin="anonymous" referrerpolicy="no-referrer" />  
+  <link rel="stylesheet" href="style.css">
+</head>  
+<body>    
+  <div id="particles-js"></div>
+  
+  <!-- navbar section -->
+  <div id="nav-root"></div>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    function Navbar() {
+      const [isOpen, setIsOpen] = useState(false);
+      const toggleNavbar = () => setIsOpen(!isOpen);
+      const closeNavbar = () => setIsOpen(false);
+
+      return (
+        <div>
+          <button 
+            onClick={toggleNavbar} 
+            style={{
+              position: 'fixed',
+              top: '20px',
+              right: '20px',
+              zIndex: 1000,
+              backgroundColor: '#1f4068',
+              color: 'white',
+              padding: '10px 15px',
+              border: 'none',
+              fontSize: '18px',
+              borderRadius: '5px',
+              cursor: 'pointer',
+            }}
+          >
+            Menu
+          </button>
+
+          {isOpen && (
+            <div 
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100vw',
+                height: '100vh',
+                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                zIndex: 999,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                textAlign: 'center',
+                color: 'black',
+              }}
+            >
+              <button 
+                onClick={closeNavbar} 
+                style={{
+                  position: 'absolute',
+                  top: '20px',
+                  right: '30px',
+                  backgroundColor: 'transparent',
+                  color: 'black',
+                  border: 'none',
+                  fontSize: '25px',
+                  cursor: 'pointer',
+                }}
+              >
+              X
+              </button>
+
+              <a href="#root" style={linkStyle}>Home</a>
+              <a href="#about-root" style={linkStyle}>About</a>
+              <a href="#projects" style={linkStyle}>Projects</a>
+              <a href="#skills-root" style={linkStyle}>Skills</a>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    const linkStyle = {
+      color: 'black',
+      textDecoration: 'none',
+      padding: '15px 20px',
+      fontSize: '20px',
+      width: '100%',
+      borderBottom: '1px solid #ddd',
+    };
+
+    function App() {
+      return <Navbar />;
+    }
+
+    ReactDOM.createRoot(document.getElementById('nav-root')).render(<App />);
+  </script>
+
+  <!-- Hero Section -->  
+  <section id="root"></section>  
+  <script type="text/babel">  
+    const Hero = () => {  
+      const styles = {  
+        heroContainer: {  
+          height: "100vh",  
+          display: "flex",  
+          alignItems: "center",  
+          justifyContent: "center",  
+          padding: "0 20px",  
+          textAlign: "center",  
+        },  
+        overlay: {  
+          textAlign: "center",  
+          maxWidth: "700px",  
+          animation: "fadeIn 2s ease-in",  
+        },  
+        name: {  
+          fontSize: "3rem",  
+          fontWeight: "bold",  
+          color: "#fff",  
+          marginBottom: "10px",  
+        },  
+        title: {  
+          fontSize: "1.8rem",  
+          color: "#fff",  
+          marginBottom: "20px",  
+        },  
+        tagline: {  
+          fontSize: "1.1rem",  
+          color: "#f0f4f8",  
+          marginBottom: "30px",  
+        },  
+        ctaButton: {  
+          backgroundColor: "#1f4068",  
+          color: "#fff",  
+          padding: "12px 24px",  
+          borderRadius: "30px",  
+          textDecoration: "none",  
+          fontWeight: "500",  
+          transition: "all 0.3s ease-in-out",  
+        },  
+      };  
+      return (  
+        <div style={styles.heroContainer}>  
+          <div style={styles.overlay}>  
+            <h1 style={styles.name}>Oluwatofunmi Samuel</h1>  
+            <h2 style={styles.title}>Front-End Web Developer</h2>  
+            <p style={styles.tagline}>  
+              I build responsive and interactive websites that leave a lasting impression.  
+            </p>  
+            <a href="#projects" style={styles.ctaButton}>View My Work</a>  
+          </div>  
+        </div>  
+      );  
+    };  
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));  
+    root.render(<Hero />);
+  </script>    
+
+  <!-- About Section -->  
+  <section id="about-root"></section>  
+  <script type="text/babel">  
+    const About = () => {  
+      const styles = {  
+        aboutContainer: {   
+          padding: "80px 20px",  
+          display: "flex",  
+          justifyContent: "center",  
+        },  
+        content: {  
+          maxWidth: "800px",  
+          textAlign: "center",  
+          animation: "fadeIn 2s ease-in",  
+        },  
+        heading: {  
+          fontSize: "2.5rem",  
+          color: "#fff",  
+          marginBottom: "30px",  
+        },  
+        text: {  
+          fontSize: "1.1rem",  
+          color: "#f0f4f8",  
+          marginBottom: "20px",  
+          lineHeight: "1.6",  
+        },  
+      };  
+      return (  
+        <div style={styles.aboutContainer} id="about">  
+          <div style={styles.content}>  
+            <h2 style={styles.heading}>About Me</h2>  
+            <p style={styles.text}>  
+              Hello! I'm <strong>Onanuga Samuel Boluwatife</strong>, a front-end web developer passionate about creating beautiful, functional, and responsive websites.  
+            </p>  
+            <p style={styles.text}>  
+              I specialize in HTML, CSS, JavaScript, and React. I'm always learning new technologies to improve user experience and build modern interfaces.  
+            </p>  
+            <p style={styles.text}>  
+             When I'm not coding, I'm exploring design tools, learning UI/UX, and building side projects.  
+            </p>  
+            <a href="resume.pdf" download style={{  
+                display: "inline-flex",  
+                alignItems: "center",  
+                gap: "10px",  
+                backgroundColor: "#1f4068",  
+                color: "#fff",  
+                padding: "12px 24px",  
+                borderRadius: "30px",  
+                textDecoration: "none",  
+                fontWeight: "500",  
+                marginTop: "20px",  
+            }}>  
+              <i className="fas fa-download"></i>  
+              Download Resume  
+            </a>  
+          </div>  
+        </div>  
+      );  
+    };  
+
+    const aboutRoot = ReactDOM.createRoot(document.getElementById("about-root"));  
+    aboutRoot.render(<About />);
+  </script>    
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2 style="text-align:center; font-size:2.5rem; color:#fff;">My Projects</h2>
+    <div class="grid" id="projectsGrid"></div>
+  </section>
+  
+  <script type="text/babel">
+    const projects = [
+      {
+        title: "PureGlow Skincare Website",
+        description: "PureGlow Skincare is a visually captivating website designed to showcase skincare products with stunning visuals and easy navigation.",
+        tech: ["Html", "CSS", "Javascript"],
+        liveLink: "https://oluwatofunmi-samuel.github.io/Pureglow-Skincare/",
+        githubLink: "https://github.com/Oluwatofunmi-samuel/Pureglow-Skincare",
+        image: "pureglow.jpg"
+      },
+      {
+        title: "Job-listing-Filtering-page",
+        description: "Job Listing Filtering Page is a user-friendly platform built with Javascript and styled using Css.",
+        tech: ["HTML", "CSS", "Javascript"],
+        liveLink: "https://oluwatofunmi-samuel.github.io/Job-listing-filering-page/",
+        githubLink: "https://github.com/Oluwatofunmi-samuel/Job-listing-filering-page",
+        image: "joblisting.jpg"
+      },
+      {
+        title: "BeanBrew Coffee",
+        description: "BeanBrew is a coffee shop website designed to showcase a variety of coffee blends.",
+        tech: ["React", "TailwindCSS"],
+        liveLink: "https://oluwatofunmi-samuel.github.io/BeanBrew-cofee/",
+        githubLink: "https://github.com/Oluwatofunmi-samuel/BeanBrew-cofee",
+        image: "beanbrew.jpg"
+      }];
+      
+    const container = document.getElementById("projectsGrid");
+
+    projects.forEach(project => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <img src="${project.image}" alt="${project.title}" style="width:100%;border-radius:8px;margin-bottom:15px;">
+        <h3 style="font-size:1.5rem;color:#fff;margin-bottom:10px;">${project.title}</h3>
+        <p style="font-size:1rem;color:#f0f4f8;margin-bottom:10px;">${project.description}</p>
+        <p style="font-size:0.9rem;color:#aaa;margin-bottom:15px;">Built with: ${project.tech.join(", ")}</p>
+        <div style="display:flex;justify-content:space-between;">
+          <a href="${project.liveLink}" target="_blank" style="text-decoration:none;color:#fff;font-weight:bold;border:1px solid #fff;padding:6px 12px;border-radius:20px;">Live</a>
+          <a href="${project.githubLink}" target="_blank" style="text-decoration:none;color:#fff;font-weight:bold;border:1px solid #fff;padding:6px 12px;border-radius:20px;">GitHub</a>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  </script>
+
+  <!-- Skills Section -->
+  <section id="skills-root"></section>
+  <script type="text/babel">
+    const SkillsSection = () => {
+      const styles = {
+        section: {
+          padding: "80px 20px",
+          background: "rgba(21, 36, 59, 0.7)"
+        },
+        heading: {
+          textAlign: 'center',
+          marginBottom: '40px',
+          fontSize: '2.5rem',
+          color: '#fff'
+        },
+        container: {
+          maxWidth: '900px',
+          margin: '0 auto',
+          padding: '0 20px'
+        },
+        skill: {
+          marginBottom: '20px'
+        },
+        skillName: {
+          fontWeight: 'bold',
+          marginBottom: '5px',
+          color: '#fff'
+        },
+        progressBar: {
+          height: '20px',
+          background: '#eee',
+          borderRadius: '20px',
+          overflow: 'hidden'
+        },
+        progress: {
+          height: '100%',
+          backgroundColor: '#007bff',
+          color: 'white',
+          textAlign: 'right',
+          paddingRight: '10px',
+          lineHeight: '20px',
+          transition: 'width 1.5s ease-in-out'
+        }
+      };
+
+      const skills = [
+        { name: 'HTML', level: 90 },
+        { name: 'CSS', level: 80 },
+        { name: 'JavaScript', level: 70 },
+        { name: 'React', level: 65 }
+      ];
+
+      const SkillBar = ({ name, level }) => {
+        const [width, setWidth] = React.useState('0%');
+
+        React.useEffect(() => {
+          setTimeout(() => setWidth(level + '%'), 100);
+        }, [level]);
+
+        return (
+          <div style={styles.skill}>
+            <div style={styles.skillName}>{name}</div>
+            <div style={styles.progressBar}>
+              <div style={{ ...styles.progress, width }}>{level}%</div>
+            </div>
+          </div>
+        );
+      };
+
+      return (
+        <div style={styles.section}>
+          <h2 style={styles.heading}>My Skills</h2>
+          <div style={styles.container}>
+            {skills.map(skill => (
+              <SkillBar key={skill.name} name={skill.name} level={skill.level} />
+            ))}
+          </div>
+        </div>
+      );
+    };
+
+    const skillsRoot = ReactDOM.createRoot(document.getElementById('skills-root'));
+    skillsRoot.render(<SkillsSection />);
+  </script>
+
+  <!-- Contact Section -->
+  <section class="contact-container" id="contact">
+       <!-- Contact & Footer Section -->
+       <div class="contact-container" id="contact" style="text-align: center;">
+        <h2 style="font-size: 2.5rem; color: #fff; margin-bottom: 20px;">Let's Connect</h2>
+        <p style="font-size: 1.1rem; color: #f0f4f8; max-width: 600px; margin: 0 auto 30px;">
+          I'm always open to opportunities, collaborations, or just a chat. Reach out to me via email or on social media!
+        </p>
+        <a href="mailto:onanugasamuelboluwatife@gmail.com" class="button" style="background-color: #1f4068; color: #fff; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 500;">Say Hello</a>
+        <div class="socials" style="margin-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+          <a href="https://github.com/Oluwatofunmi-samuel" target="_blank" style="text-decoration: none; color: #fff; font-weight: bold;">GitHub</a>
+          <a href="https://x.com/Oluwatofunmisam?t=-mNVGPbCHWmj50BcPqMlbw&s=09" target="_blank" style="text-decoration: none; color: #fff; font-weight: bold;">Twitter</a>
+        </div>
+      </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Onanuga Samuel Boluwatife. Built with passion. | 
+    <a href="#contact" style="color:#ffd166;text-decoration:none;font-weight:500;">Contact Me</a>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollTopBtn" title="Go to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M8 3.293l5.354 5.353-.708.708L8 4.707l-4.646 4.647-.708-.708L8 3.293z"/>
+    </svg>
+  </button>
+
+  <!-- GitHub Button -->
+  <a href="https://github.com/oluwatofunmi-samuel" class="github-btn" target="_blank" title="View GitHub">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52 0-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.11 0 0 .67-.21 2.2.82a7.65 7.65 0 012.01-.27c.68 0 1.36.09 2.01.27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.91.08 2.11.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+    </svg>
+  </a>
+
+  <script>
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrollTopBtn.style.display = "flex";
+      } else {
+        scrollTopBtn.style.display = "none";
+      }
+    };
+    scrollTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const particlesContainer = document.getElementById('particles-js');
+      let particles = [];
+      let particleCount;
+      let animationFrameId = null;
+
+      function initParticles() {
+        particlesContainer.innerHTML = '';
+        particles = [];
+        const screenArea = window.innerWidth * window.innerHeight;
+        particleCount = Math.min(Math.floor(screenArea / 5000), 150);
+        
+        for (let i = 0; i < particleCount; i++) {
+          createParticle();
+        }
+        
+        if (!animationFrameId) {
+          animateParticles();
+        }
+      }
+      
+      function createParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        const size = Math.random() * 4 + 1;
+        const posX = Math.random() * window.innerWidth;
+        const posY = Math.random() * window.innerHeight;
+        const opacity = Math.random() * 0.6 + 0.2;
+        const speed = Math.random() * 0.5 + 0.2;
+        
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`;
+        particle.style.left = `${posX}px`;
+        particle.style.top = `${posY}px`;
+        particle.speed = speed;
+        particle.x = posX;
+        particle.y = posY;
+        
+        particlesContainer.appendChild(particle);
+        particles.push(particle);
+      }
+      
+      function animateParticles() {
+        particles.forEach(particle => {
+          particle.y -= particle.speed;
+          
+          if (particle.y < -10) {
+            resetParticle(particle);
+          } else {
+            particle.style.top = `${particle.y}px`;
+          }
+        });
+        
+        animationFrameId = requestAnimationFrame(animateParticles);
+      }
+      
+      function resetParticle(particle) {
+        particle.x = Math.random() * window.innerWidth;
+        particle.y = window.innerHeight + 10;
+        particle.speed = Math.random() * 0.5 + 0.2;
+        particle.style.left = `${particle.x}px`;
+        particle.style.top = `${particle.y}px`;
+      }
+      
+      window.addEventListener('resize', function() {
+        particles.forEach(particle => {
+          if (particle.x > window.innerWidth || particle.y > window.innerHeight) {
+            resetParticle(particle);
+          }
+        });
+        
+        const newParticleCount = Math.min(Math.floor((window.innerWidth * window.innerHeight) / 5000), 150);
+        if (Math.abs(newParticleCount - particleCount) > 20) {
+          initParticles();
+        }
+      });
+      
+      initParticles();
+      
+      window.addEventListener('beforeunload', function() {
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
