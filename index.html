@@ -65,6 +65,59 @@
               backgroundColor: 'rgba(255, 255, 255, 0.95)',
               zIndex: 999,
               display: 'flex',
+<div id="nav-root"></div>
+
+<script type="text/babel">
+  const { useState } = React;
+
+  function Navbar() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleNavbar = () => setIsOpen(!isOpen);
+    const closeNavbar = () => setIsOpen(false);
+
+    const navLinks = [
+      { name: 'Home', href: '#root' },
+      { name: 'About', href: '#about-root' },
+      { name: 'Skills', href: '#skills-root' },
+      { name: 'Contact', href: '#contact' },
+    ];
+
+
+    return (
+      <div>
+        {/* Hamburger / X button */}
+        <button 
+          onClick={toggleNavbar} 
+          style={{
+            position: 'absolute',
+            top: '20px',
+            right: '20px',
+            zIndex: 1000,
+            backgroundColor: '#1f4068',
+            color: 'white',
+            padding: '10px 15px',
+            border: 'none',
+            fontSize: '24px',
+            borderRadius: '5px',
+            cursor: 'pointer',
+          }}
+        >
+          {isOpen ? '×' : '☰'}
+        </button>
+
+        {/* Full-screen dropdown menu */}
+        {isOpen && (
+          <div 
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '100vw',
+              height: '100vh',
+              backgroundColor: 'rgba(255, 255, 255, 0.95)',
+              zIndex: 999,
+              display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'center',
@@ -76,6 +129,7 @@
             {navLinks.map((link, index) => (
               <a 
                 key={index}
+                href={link.href}
                 onClick={closeNavbar}
                 style={{
                   margin: '20px 0',
@@ -85,7 +139,7 @@
                   cursor: 'pointer',
                 }}
               >
-                {link}
+                {link.name}
               </a>
             ))}
           </div>
